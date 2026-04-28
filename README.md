@@ -28,4 +28,8 @@ hasil fix:
 # BUG 3
 agar data tetap tersimpan setelah refresh web/laman, menggunakan local storage
 ![alt text](image-5.png)
-gambar ini setelah web refresh
+fix :
+tambahkan function ini pada kode
+![alt text](image-6.png)
+dan panggil function tersebut setelah tambah baris data, edit data, dan delete data
+![alt text](image-7.png)

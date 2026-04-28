@@ -96,7 +96,18 @@
 <script>
     const form = document.getElementById("formMahasiswa");
     const tableBody = document.getElementById("tableBody");
+    const STORAGE_KEY = "data_mhs";
 
+    loadData();
+
+    function saveToLocal(){
+        localStorage.setItem(STORAGE_KEY, tableBody.innerHTML);
+    }
+
+    function loadData(){
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) tableBody.innerHTML = saved;
+    }
 
     form.addEventListener("submit", function(e) {
         e.preventDefault();
@@ -105,7 +116,6 @@
         const nama = document.getElementById("nama").value;
         const alamat = document.getElementById("alamat").value;
         const jk = document.querySelector('input[name="jk"]:checked')?.value || "-";
-
         const tl = document.getElementById("tl").value;
         const password = document.getElementById("password").value;
 
@@ -126,14 +136,18 @@
                     <img src="trash.png" width="20">
                 </a>
             </td>
+
+            
         `;
 
         tableBody.appendChild(row);
+        saveToLocal();
         form.reset();
     });
 
     function deleteRow(el) {
         el.parentElement.parentElement.remove();
+        saveToLocal();
     }
 
     function editRow(el) {
@@ -146,19 +160,10 @@
         document.getElementById("password").value = cells[5].innerText;
 
         row.remove();
-    }
-
-    // Local Storage
-    const STORAGE = "data_mhs";
-
-    function saveToLocal() {
-    localStorage.setItem(STORAGE_KEY, tableBody.innerHTML);
+        saveToLocal();
     }
     
-    (function loadData() {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) tableBody.innerHTML = saved;
-    })();
+    
     
 </script>
 
