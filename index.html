@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Data Mahasiswa</title>
+    <style>
+        body {
+            font-family: Arial;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        form {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 15px;
+        }
+        button {
+            padding: 10px;
+            margin-right: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .submit { background: green; color: white; }
+        .reset { background: orange; color: white; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #fff;
+        }
+        th, td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        img {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Form Data Mahasiswa</h2>
+
+<form id="formMahasiswa">
+    <label>NIM</label>
+    <input type="text" id="nim" required>
+
+    <label>Nama</label>
+    <input type="text" id="nama" required>
+
+    <label>Alamat</label>
+    <textarea id="alamat"></textarea>
+
+    <label>Jenis Kelamin</label><br>
+    <input type="radio" name="jk" value="Pria"> Pria
+    <input type="radio" name="jk" value="Wanita"> Wanita
+    <input type="radio" name="jk" value="Lainnya"> Lainnya
+    <br><br>
+
+    <label>Tanggal Lahir</label>
+    <input type="date" id="tl">
+
+    <label>Password</label>
+    <input type="password" id="password">
+
+    <button type="submit" class="submit">Submit</button>
+    <button type="reset" class="reset">Reset</button>
+</form>
+
+<h2>Data Mahasiswa</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <th>JK</th>
+            <th>TL</th>
+            <th>Password</th>
+            <th>Aksi</th>
+        </tr>
+    </thead>
+    <tbody id="tableBody"></tbody>
+</table>
+
+<script>
+    const form = document.getElementById("formMahasiswa");
+    const tableBody = document.getElementById("tableBody");
+
+
+    form.addEventListener("submit", function(e) {
+        e.preventDefault();
+
+        const nim = document.getElementById("nim").value;
+        const nama = document.getElementById("nama").value;
+        const alamat = document.getElementById("alamat").value;
+        const jk = document.querySelector('input[name="jk"]:checked')?.value || "-";
+
+        const tl = document.getElementById("tl").value;
+        const password = document.getElementById("password").value;
+
+        const row = document.createElement("tr");
+
+        row.innerHTML = `
+            <td>${nim}</td>
+            <td>${nama}</td>
+            <td>${alamat}</td>
+            <td>${jk}</td>
+            <td>${tl}</td>
+            <td>${password}</td>
+            <td>
+                <a href="#" onclick="editRow(this)">
+                    <img src="edit.png" width="20">
+                </a>
+                <a href="#" onclick="deleteRow(this)">
+                    <img src="trash.png" width="20">
+                </a>
+            </td>
+        `;
+
+        tableBody.appendChild(row);
+        form.reset();
+    });
+
+    function deleteRow(el) {
+        el.parentElement.parentElement.remove();
+    }
+
+    function editRow(el) {
+        const row = el.parentElement.parentElement;
+        const cells = row.children;
+
+        document.getElementById("nim").value = cells[0].innerText;
+        document.getElementById("nama").value = cells[1].innerText;
+        document.getElementById("alamat").value = cells[2].innerText;
+        document.getElementById("password").value = cells[5].innerText;
+
+        row.remove();
+    }
+
+    // Local Storage
+    const STORAGE = "data_mhs";
+
+    function saveToLocal() {
+    localStorage.setItem(STORAGE_KEY, tableBody.innerHTML);
+    }
+    
+    (function loadData() {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) tableBody.innerHTML = saved;
+    })();
+    
+</script>
+
+</body>
+</html>
