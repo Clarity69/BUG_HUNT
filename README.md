@@ -1,6 +1,6 @@
 # BUG_HUNT
 
-# BUG 1 
+### BUG 1 
 image pada action button tidak ada/ broken image karena file yang dibutuhkan tidak ada
 ![alt text](bug1.png)
 ![alt text](bug1ui.png)
@@ -8,7 +8,7 @@ fix :
 tambahkan file image sesuai action yang dibutuhkan
 ![alt text](bug1fix.png)
 
-# BUG 2
+### BUG 2
 Tanggal pada form di isi secara manual, Pengguna bisa menginput tanggal yang tidak ada secara kalender.
 ![alt text](datebug1.png)
 ![alt text](datebug2.png)
@@ -25,7 +25,7 @@ ganti dengan code berikut pada bagian tanggal lahir
 hasil fix:
 ![alt text](image-4.png)
 
-# BUG 3
+### BUG 3
 agar data tetap tersimpan setelah refresh web/laman, menggunakan local storage
 ![alt text](image-5.png)
 fix :
@@ -34,7 +34,7 @@ tambahkan function ini pada kode
 dan panggil function tersebut setelah tambah baris data, edit data, dan delete data
 ![alt text](image-7.png)
 
-# BUG 4
+### BUG 4
 password pada table data masih visible, ini merupakan celah keamanan.
 ![alt text](image-8.png)
 fix :
