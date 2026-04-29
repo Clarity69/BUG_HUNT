@@ -2,7 +2,6 @@
 
 ### BUG 1 
 Ikon pada tombol aksi (Edit & Hapus) tidak muncul atau rusak (broken image) dikarenakan path file gambar tidak ditemukan atau file aset belum tersedia di direktori proyek.
-![alt text](bug1.png)
 <img src="bug1.png" width=500>
 <img src="bug1ui.png" width=500>
 fix :
