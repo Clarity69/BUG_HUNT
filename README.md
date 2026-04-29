@@ -1,7 +1,7 @@
 # BUG_HUNT
 
 # BUG 1 
-image pada action button tidak ada
+image pada action button tidak ada/ broken image karena file yang dibutuhkan tidak ada
 ![alt text](bug1.png)
 ![alt text](bug1ui.png)
 fix :
@@ -33,3 +33,8 @@ tambahkan function ini pada kode
 ![alt text](image-6.png)
 dan panggil function tersebut setelah tambah baris data, edit data, dan delete data
 ![alt text](image-7.png)
+
+# BUG 4
+password pada table data masih visible, ini merupakan celah keamanan.
+![alt text](image-8.png)
+fix :

@@ -44,6 +44,7 @@
         img {
             cursor: pointer;
         }
+
     </style>
 </head>
 <body>
@@ -127,7 +128,10 @@
             <td>${alamat}</td>
             <td>${jk}</td>
             <td>${tl}</td>
-            <td>${password}</td>
+            <td>
+                ${password}
+                <img src="eye.png" width="20" onclick="showPassword(this)">
+            </td>
             <td>
                 <a href="#" onclick="editRow(this)">
                     <img src="edit.png" width="20">
@@ -162,9 +166,6 @@
         row.remove();
         saveToLocal();
     }
-    
-    
-    
 </script>
 
 </body>
