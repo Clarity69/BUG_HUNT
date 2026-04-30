@@ -3,7 +3,7 @@
 ### BUG 1 
 Ikon pada tombol aksi (Edit & Hapus) tidak muncul atau rusak (broken image) dikarenakan path file gambar tidak ditemukan atau file aset belum tersedia di direktori proyek.
 <img src="bug1.png" width=500;>
-<img src="bug1ui.png" width=500;>
+<img src="bug1ui.png" width=500;><br>
 **fix :**
 Menyediakan file aset edit.png dan trash.png di direktori yang sesuai dan memastikan pemanggilan path pada tag ```<img>``` sudah benar.
 <img src="bug1fix.png" width=500;>
@@ -18,9 +18,12 @@ Tanggal pada form di isi secara manual, Pengguna bisa menginput tanggal yang tid
 daripada menggunakan secara manual, bisa memakai ```type=date``` yang lebih efisien untuk penanggalan.
 <img src="datefix.png" width=500;>
 <img src="dateuifix.png" width=500;>
-hapus script js yang masih menggunakan id tanggal bulan tahun
-<img src="image-1.png" width=500;>
-<img src="image-2.png" width=500;>
+hapus script js yang masih menggunakan id tanggal bulan tahun<br>
+
+<img src="image-1.png" width=500;><br>
+
+<img src="image-2.png" width=500;><br>
+
 ganti dengan code berikut pada bagian tanggal lahir
 <img src="image-3.png" width=500;>
 hasil fix:
@@ -28,7 +31,7 @@ hasil fix:
 
 ### BUG 3
 agar data tetap tersimpan setelah refresh web/laman, menggunakan local storage
-<img src="image-5.png" width=500;>
+<img src="image-5.png" width=500;><br>
 
 **fix :**
 tambahkan function ini pada kode
