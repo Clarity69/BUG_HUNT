@@ -26,7 +26,7 @@ hapus script js yang masih menggunakan id tanggal bulan tahun<br>
 
 ganti dengan code berikut pada bagian tanggal lahir
 <img src="image-3.png" width=500;><br>
-hasil fix:
+hasil fix:<br>
 <img src="image-4.png" width=500;>
 
 ### BUG 3
