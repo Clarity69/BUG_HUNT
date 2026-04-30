@@ -5,7 +5,7 @@ Ikon pada tombol aksi (Edit & Hapus) tidak muncul atau rusak (broken image) dika
 <img src="bug1.png" width=500;>
 <img src="bug1ui.png" width=500;><br>
 **fix :**
-Menyediakan file aset edit.png dan trash.png di direktori yang sesuai dan memastikan pemanggilan path pada tag ```<img>``` sudah benar.
+Menyediakan file aset edit.png dan trash.png di direktori yang sesuai dan memastikan pemanggilan path pada tag ```<img>``` sudah benar.<br>
 <img src="bug1fix.png" width=500;>
 
 ### BUG 2
@@ -34,7 +34,7 @@ agar data tetap tersimpan setelah refresh web/laman, menggunakan local storage
 <img src="image-5.png" width=500;><br>
 
 **fix :**
-tambahkan function ini pada kode
+tambahkan function ini pada kode<br>
 <img src="image-6.png" width=500;>
 
 dan panggil function tersebut setelah tambah baris data, edit data, dan delete data
