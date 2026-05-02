@@ -26,12 +26,11 @@
             const nimText = nimCell.textContent || nimCell.innerText;
             const namaText = namaCell.textContent || namaCell.innerText;
 
-            // Cek apakah keyword ada di NIM atau Nama
             if (nimText.toLowerCase().indexOf(filter) > -1 || 
                 namaText.toLowerCase().indexOf(filter) > -1) {
-                rows[i].style.display = ""; // Tampilkan baris
+                rows[i].style.display = "";
             } else {
-                rows[i].style.display = "none"; // Sembunyikan baris
+                rows[i].style.display = "none";
             }
         }
     }
