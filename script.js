@@ -1,5 +1,6 @@
    const form = document.getElementById("formMahasiswa");
     const tableBody = document.getElementById("tableBody");
+   const searchInput = document.getElementById("search-mhs");
     const STORAGE_KEY = "data_mhs";
 
     loadData();
@@ -12,6 +13,29 @@
         const saved = localStorage.getItem(STORAGE_KEY);
         if (saved) tableBody.innerHTML = saved;
     }
+
+    searchInput.addEventListener("input", function() {
+    const filter = searchInput.value.toLowerCase(); // Ambil input dan ubah ke huruf kecil
+    const rows = tableBody.getElementsByTagName("tr"); // Ambil semua baris di tbody
+
+    for (let i = 0; i < rows.length; i++) {
+        const nimCell = rows[i].getElementsByTagName("td")[0]; // Kolom NIM
+        const namaCell = rows[i].getElementsByTagName("td")[1]; // Kolom Nama
+
+        if (nimCell && namaCell) {
+            const nimText = nimCell.textContent || nimCell.innerText;
+            const namaText = namaCell.textContent || namaCell.innerText;
+
+            // Cek apakah keyword ada di NIM atau Nama
+            if (nimText.toLowerCase().indexOf(filter) > -1 || 
+                namaText.toLowerCase().indexOf(filter) > -1) {
+                rows[i].style.display = ""; // Tampilkan baris
+            } else {
+                rows[i].style.display = "none"; // Sembunyikan baris
+            }
+        }
+    }
+});
 
     function toggleView(btn) {
             const container = btn.parentElement;
