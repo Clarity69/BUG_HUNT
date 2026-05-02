@@ -48,7 +48,6 @@ password pada table data masih visible, ini merupakan celah keamanan.
 pada inner html javascript tambahkan code ini pada bagian password
 <img src="image-9.png" width=500;><br>
 dan tambahkan fucntion agar bisa toggle view password
-![alt text](image-11.png)
 <img src="image-11.png" width=500;><br>
 hasilnya bagian data table pada rows password menjadi seperti ini
 <img src="image-10.png" width=500;>
