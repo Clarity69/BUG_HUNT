@@ -55,9 +55,8 @@ hasilnya bagian data table pada rows password menjadi seperti ini
 
 ### ADD FEATURE
 menambahkan search input untuk table data mahasiswa
-<img src="image-12.png" width=500;>
+<img src="image-12.png" width=500;><br>
 <img src="image-13.png" width=500;><br>
-
-source code:
+***source code:***
 <img src="image-14.png" width=500;>
 <img src="image-15.png" width=500;>
