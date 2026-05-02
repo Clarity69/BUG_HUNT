@@ -20,6 +20,9 @@
             padding: 8px;
             margin: 5px 0 15px;
         }
+        textarea{
+            resize: none;
+        }
         button {
             padding: 10px;
             margin-right: 5px;
@@ -40,11 +43,21 @@
             padding: 10px;
             text-align: center;
         }
-
-        img {
+        .action-btn{
+            background: none;
+            border: none;
             cursor: pointer;
+            padding: 0;
         }
-
+        /* img {
+            cursor: pointer;
+        } */
+        .view-button{
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
     </style>
 </head>
 <body>
@@ -110,6 +123,23 @@
         if (saved) tableBody.innerHTML = saved;
     }
 
+    function toggleView(btn) {
+            const container = btn.parentElement;
+            const textSpan = container.querySelector('.pw-text');
+            const isOpened = textSpan.getAttribute('data-opened') === 'true';
+            const originalPw = textSpan.getAttribute('data-pw');
+
+            if (isOpened) {
+                textSpan.innerText = "••••••••";
+                textSpan.setAttribute('data-opened', 'false');
+                btn.innerText = "👁️";
+            } else {
+                textSpan.innerText = originalPw;
+                textSpan.setAttribute('data-opened', 'true');
+                btn.innerText = "🔒";
+            }
+        }
+
     form.addEventListener("submit", function(e) {
         e.preventDefault();
 
@@ -129,19 +159,19 @@
             <td>${jk}</td>
             <td>${tl}</td>
             <td>
-                ${password}
-                <img src="eye.png" width="20" onclick="showPassword(this)">
+                <div class="pw-container">
+                    <span class="pw-text" data-opened="false" data-pw="${password}">••••••••</span>
+                    <button type="button" class="view-btn" onclick="toggleView(this)"><img src="eye.png" width="20"></button>
+                </div>
             </td>
             <td>
-                <a href="#" onclick="editRow(this)">
+                <button class="action-btn" onclick="editRow(this)">
                     <img src="edit.png" width="20">
-                </a>
-                <a href="#" onclick="deleteRow(this)">
+                </button>
+                <button class="action-btn" onclick="deleteRow(this)">
                     <img src="trash.png" width="20">
-                </a>
+                </button>
             </td>
-
-            
         `;
 
         tableBody.appendChild(row);
@@ -152,20 +182,35 @@
     function deleteRow(el) {
         el.parentElement.parentElement.remove();
         saveToLocal();
+        const row = el.closest('tr');
+        
+        if(confirm("Apakah Anda yakin ingin menghapus data ini?")){
+            row.remove();
+            saveToLocal();
+        }
     }
 
     function editRow(el) {
-        const row = el.parentElement.parentElement;
-        const cells = row.children;
+    const row = el.closest('tr');
+    const cells = row.children;
 
-        document.getElementById("nim").value = cells[0].innerText;
-        document.getElementById("nama").value = cells[1].innerText;
-        document.getElementById("alamat").value = cells[2].innerText;
-        document.getElementById("password").value = cells[5].innerText;
+    document.getElementById("nim").value = cells[0].innerText;
+    document.getElementById("nama").value = cells[1].innerText;
+    document.getElementById("alamat").value = cells[2].innerText;
+    
+    const jkValue = cells[3].innerText;
+    const radio = document.querySelector(`input[name="jk"][value="${jkValue}"]`);
+    if (radio) radio.checked = true;
 
-        row.remove();
-        saveToLocal();
-    }
+    document.getElementById("tl").value = cells[4].innerText;
+    
+    // Cari span di dalam kolom ke-6 (index 5)
+    const pwSpan = cells[5].querySelector('.pw-text');
+    document.getElementById("password").value = pwSpan.getAttribute('data-pw');
+
+    row.remove();
+    saveToLocal();
+}
 </script>
 
 </body>

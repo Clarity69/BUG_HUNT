@@ -45,3 +45,7 @@ password pada table data masih visible, ini merupakan celah keamanan.
 <img src="image-8.png" width=500;>
 
 **fix :**
+pada inner html javascript tambahkan code ini pada bagian password
+<img src="image-9.png" width=500;>>
+hasilnya bagian data table pada rows password menjadi seperti ini
+<img src="image-10.png" width=500;>
