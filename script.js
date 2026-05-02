@@ -22,11 +22,11 @@
             if (isOpened) {
                 textSpan.innerText = "••••••••";
                 textSpan.setAttribute('data-opened', 'false');
-                btn.innerText = "👁️";
+                btn.innerHTML = `<img src="eye.png" width="20">`;
             } else {
                 textSpan.innerText = originalPw;
                 textSpan.setAttribute('data-opened', 'true');
-                btn.innerText = "🔒";
+                btn.innerHTML = `<img src="hide.png" width="20">`;
             }
         }
 
