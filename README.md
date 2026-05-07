@@ -1,6 +1,6 @@
 # BUG_HUNT
-
-# LINK TO WEBSITE
+mencari bug yang ada dalam website dummy.
+### LINK TO WEBSITE
 https://github.com/Clarity69/website-form-mhs
 
 ### BUG 1 
